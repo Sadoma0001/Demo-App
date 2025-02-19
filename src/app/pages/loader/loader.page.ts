@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar,IonItem, IonLabel, IonSpinner } from '@ionic/angular/standalone';
@@ -12,9 +13,12 @@ import { IonContent, IonHeader, IonTitle, IonToolbar,IonItem, IonLabel, IonSpinn
 })
 export class LoaderPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    setTimeout(() => {
+    this.router.navigate(['login']);
+    }, 2000); // 2-second delay before navigation
   }
 
 }

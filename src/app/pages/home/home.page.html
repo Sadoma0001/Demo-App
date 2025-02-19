@@ -9,8 +9,8 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item>
+  <ion-list color="success">
+    <ion-item color="success">
       <ion-avatar slot="start">
         <img
           src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png"
@@ -22,4 +22,24 @@
       </ion-label>
     </ion-item>
   </ion-list>
+
+  <app-pickup-call-card
+    [hasHeader]="true"
+    [hasFooter]="true"
+    [status]="'hold'"
+    [updatedAt]="'25/04/2021 16:29'"
+    [createdAt]="'24/04/2021'"
+    [notes]="'We have two bags that are full'"
+  ></app-pickup-call-card>
+
+  <ion-fab
+    slot="fixed"
+    vertical="bottom"
+    horizontal="end"
+    (click)="newPickupCall()"
+  >
+    <ion-fab-button color="success">
+      <ion-icon name="add"> </ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

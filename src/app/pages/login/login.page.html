@@ -1,34 +1,69 @@
 <ion-content>
   <div class="flex-center">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title color="success">Card Title</ion-card-title>
-      </ion-card-header>
+    <form [formGroup]="form" (ngSubmit)="login()" novalidate>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title color="success">Login</ion-card-title>
+        </ion-card-header>
 
-      <ion-card-content>
+        <ion-card-content>
+          <ion-item>
+            <ion-input
+              label="Email"
+              labelPlacement="floating"
+              placeholder="Enter your email"
+              type="email"
+              formControlName="email"
+            ></ion-input>
+          </ion-item>
 
-        <ion-item>
-          <ion-input
-            label="Email"
-            labelPlacement="floating"
-            placeholder="Enter text"
-            type="email"
-          ></ion-input>
-        </ion-item>
+          <!-- Fix: Use 'email' as a string key inside the error check -->
+          <ion-label color="danger" *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['email']">
+            Please enter a valid email.
+          </ion-label>
 
-        <ion-item>
-          <ion-input
-            label="Password"
-            labelPlacement="floating"
-            placeholder="Enter text"
-            type="password"
-          ></ion-input>
-        </ion-item>
-        
-        <ion-button color="dark" fill="clear" size="full">Forgot email/password</ion-button>
-        <ion-button color="success" size="full">Login</ion-button>
-        <ion-button color="success" fill="clear" size="full">Register</ion-button>
-      </ion-card-content>
-    </ion-card>
+          <ion-item>
+            <ion-input
+              label="Password"
+              labelPlacement="floating"
+              placeholder="Enter your password"
+              type="password"
+              formControlName="password"
+            ></ion-input>
+          </ion-item>
+
+          <ion-label color="danger" *ngIf="form.get('password')?.touched && form.get('password')?.errors?.['minlength']">
+            Password must be at least 6 characters long.
+          </ion-label>
+
+          <ion-button
+            color="dark"
+            fill="clear"
+            expand="full"
+            [disabled]="form.get('email')?.invalid"
+          >
+            Forgot email/password
+          </ion-button>
+
+          <ion-button
+            color="success"
+            expand="full"
+            [disabled]="!form.valid"
+            type="submit"
+          >
+            Login
+          </ion-button>
+
+          <ion-button
+            color="success"
+            fill="clear"
+            expand="full"
+            (click)="register()"
+          >
+            Register
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </form>
   </div>
 </ion-content>

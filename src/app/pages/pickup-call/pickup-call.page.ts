@@ -7,23 +7,21 @@ import {
   IonHeader,
   IonTitle,
   IonToolbar,
-  IonRadio,
-  IonRadioGroup,
+  IonBackButton,
+  IonButtons,
   IonCard,
   IonCardContent,
-  IonCardHeader,
-  IonCardTitle,
-  IonInput,
+  IonList,
   IonItem,
+  IonLabel,
+  IonTextarea,
   IonButton,
-  IonButtons,
-  IonBackButton,
 } from '@ionic/angular/standalone';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.page.html',
-  styleUrls: ['./register.page.scss'],
+  selector: 'app-pickup-call',
+  templateUrl: './pickup-call.page.html',
+  styleUrls: ['./pickup-call.page.scss'],
   standalone: true,
   imports: [
     IonContent,
@@ -32,25 +30,23 @@ import {
     IonToolbar,
     CommonModule,
     FormsModule,
-    IonRadio,
-    IonRadioGroup,
+    IonBackButton,
+    IonButtons,
     IonCard,
     IonCardContent,
-    IonCardHeader,
-    IonCardTitle,
-    IonInput,
+    IonList,
     IonItem,
+    IonLabel,
+    IonTextarea,
     IonButton,
-    IonButtons,
-    IonBackButton,
   ],
 })
-export class RegisterPage implements OnInit {
+export class PickupCallPage implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {}
 
-  register() {
+  newPickupCall() {
     this.router.navigate(['home']);
   }
 }
